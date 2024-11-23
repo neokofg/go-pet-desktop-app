@@ -1,0 +1,4 @@
+.idea/
+passwords.db
+node_modules/
+cmd/app/tmp/

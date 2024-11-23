@@ -1,0 +1,46 @@
+# .air.toml
+root = "."
+tmp_dir = "tmp"
+
+[build]
+  # Путь к главному файлу приложения
+  main = "cmd/app/main.go"
+  # Команда для сборки
+  cmd = "go build -o ./tmp/app ./cmd/app"
+  # Путь к исполняемому файлу
+  bin = "./tmp/app"
+  # Задержка перед перезапуском
+  delay = 1000
+  # Исключаем ненужные директории
+  exclude_dir = ["assets", "tmp", "vendor", "testdata"]
+  # Включаем нужные расширения файлов
+  include_ext = ["go", "tpl", "tmpl", "html", "css", "js"]
+  # Исключаем тестовые файлы
+  exclude_regex = ["_test\\.go"]
+  # Включаем автоматическое удаление временных файлов
+  clean_on_exit = true
+  # Наблюдаем за всеми директориями проекта
+  follow_symlink = true
+  # Наблюдаем за изменениями в этих директориях
+  watch_dir = ["cmd", "internal", "web"]
+
+[color]
+  # Включаем цветной вывод
+  main = "magenta"
+  watcher = "cyan"
+  build = "yellow"
+  runner = "green"
+
+[log]
+  # Добавляем временные метки в логи
+  time = true
+  # Показываем полный путь к файлам
+  main_only = false
+
+[screen]
+  # Очищаем экран при перезапуске
+  clear_on_rebuild = true
+
+[misc]
+  # Очищаем консоль при запуске
+  clean_on_exit = true
